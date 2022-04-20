@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useAuth0 } from '@auth0/auth0-react';
+import Login from './Login.jsx';
 import { LoginButton } from './Login';
 import { LogoutButton } from './Logout';
 import { Profile } from './Profile';
@@ -10,18 +11,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {isAuthenticated?(
-          <>
-            <Profile/>
-            <LogoutButton/>
-          </>          
-        ):
-          (
-            <LoginButton/>
-          )
-        }       
+          
       </header>
+      <div className="rectangulo_login">
+        <Login/>
+      </div>
+      
     </div>
   );
 }
