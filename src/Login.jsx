@@ -30,6 +30,8 @@ function CuadroLogin(){
       query.forEach(doc => {
         if (password == doc.data().pass){
           console.log('pass');
+        }else{
+          console.log('fail');
         }
       });
     }else{
