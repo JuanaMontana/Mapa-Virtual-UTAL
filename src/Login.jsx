@@ -3,7 +3,14 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import { useFirebaseApp } from 'reactfire';
 
-function CuadroLogin(){
+
+import Modal from './componentes/Modal';
+import styled from 'styled-components';
+
+
+function CuadroLogin() {
+  
+  const [modaState, changeState] = useState(false);
   const [matricula, setMatricula] = useState('');
   const [password, setPassword] = useState('');
 
@@ -21,6 +28,8 @@ function CuadroLogin(){
   firebase.initializeApp(config);
   let firestore = firebase.firestore();
 
+
+
   const login = async () => {
 
     const db = firestore;
@@ -36,17 +45,20 @@ function CuadroLogin(){
       });
     }else{
       console.log('fail');
+      changeState(!modaState)
     }
     
   }
   
   return (
+    
     <div>
-      <div>        
+      <div>      
         <label>
               Matricula: 
           <input 
-            type="text" 
+            type="text" classname="form-control
+            form-control-lg" placeholder="123456"
             onChange={(ev) => setMatricula(ev.target.value)}
             id = "matricula"
           />        
@@ -54,13 +66,24 @@ function CuadroLogin(){
         <label>
               Password: 
           <input 
-            type="password" 
+            type="password"  placeholder="**********"
             onChange={(ev) => setPassword(ev.target.value)} 
             id = "password"
           />        
         </label>
-        <button onClick={login}>Aprietame papito</button> 
+        <button color="success" onClick={login} >Aprietame papito </button> 
+        
       </div>
+      <Modal
+        state = {modaState}
+        change = {changeState}
+      >
+        <Contenido>
+          <h1>Usuario y/o contraseña incorrectos</h1>
+          <p>Por favor verifique e intente nuevamente</p>
+        </Contenido>
+        
+      </Modal>
     </div>
   );
 }
@@ -70,7 +93,7 @@ class Formulario extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  
   render() {
     return (
       <div>
@@ -81,3 +104,20 @@ class Formulario extends React.Component {
 }
 
 export default Formulario;
+
+const Contenido = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 { 
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 0px;
+  }
+
+  p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+`;

@@ -6,8 +6,16 @@ import { LoginButton } from './Login';
 import { LogoutButton } from './Logout';
 import { Profile } from './Profile';
 
+import styled from 'styled-components';
+import Modal from './componentes/Modal';
+import { Button } from 'bootstrap';
+import React, { useState } from 'react';
+
+
+
+
 function App() {
-  const {isAuthenticated} = useAuth0();
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -15,6 +23,7 @@ function App() {
       </header>
       <div className="rectangulo_login">
         <Login/>
+        
       </div>
       
     </div>
@@ -22,3 +31,4 @@ function App() {
 }
 
 export default App;
+
