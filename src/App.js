@@ -1,28 +1,34 @@
-
-import Menuadmin from "./pages/menuadmin"
 import logo from './logo.svg';
 import './App.css';
 import { useAuth0 } from '@auth0/auth0-react';
-import Login from './pages/Login.jsx';
-import { LoginButton } from './pages/Login';
-import { LogoutButton } from './components/logout';
-import { Profile } from './components/profile';
+import Login from './Login.jsx';
+import { LoginButton } from './Login';
+import { LogoutButton } from './Logout';
+import { Profile } from './Profile';
+
+import styled from 'styled-components';
+import Modal from './componentes/Modal';
+import { Button } from 'bootstrap';
+import React, { useState } from 'react';
+
+
+
 
 function App() {
-  const { isAuthenticated } = useAuth0();
+  
   return (
     <div className="App">
-
-      <div >
-        <div className="rectangulo_login">
-        <Login />
-        </div>
-        <Menuadmin />
+      <header className="App-header">
+          
+      </header>
+      <div className="rectangulo_login">
+        <Login/>
+        
       </div>
-
-
+      
     </div>
   );
 }
 
 export default App;
+
