@@ -1,22 +1,26 @@
+
+import Menuadmin from "./pages/menuadmin"
 import logo from './logo.svg';
 import './App.css';
 import { useAuth0 } from '@auth0/auth0-react';
-import Login from './Login.jsx';
-import { LoginButton } from './Login';
-import { LogoutButton } from './Logout';
-import { Profile } from './Profile';
+import Login from './pages/Login.jsx';
+import { LoginButton } from './pages/Login';
+import { LogoutButton } from './components/logout';
+import { Profile } from './components/profile';
 
 function App() {
-  const {isAuthenticated} = useAuth0();
+  const { isAuthenticated } = useAuth0();
   return (
     <div className="App">
-      <header className="App-header">
-          
-      </header>
-      <div className="rectangulo_login">
-        <Login/>
+
+      <div >
+        <div className="rectangulo_login">
+        <Login />
+        </div>
+        <Menuadmin />
       </div>
-      
+
+
     </div>
   );
 }

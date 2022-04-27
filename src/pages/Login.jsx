@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
-import { useFirebaseApp } from 'reactfire';
+
 
 function CuadroLogin(){
   const [matricula, setMatricula] = useState('');
