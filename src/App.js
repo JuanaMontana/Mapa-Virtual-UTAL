@@ -14,9 +14,9 @@ function App() {
     <div className="App">
 
       <div >
-        <div className="rectangulo_login">
+        {/* <div className="rectangulo_login">
         <Login />
-        </div>
+        </div> */}
         <Menuadmin />
       </div>
 
