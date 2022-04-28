@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
+import Header from '../components/headerlogin'
 import { NavLink }  from 'react-router-dom';
 import Menuadmin from './menuadmin';
 
@@ -53,6 +54,7 @@ function CuadroLogin(){
 
   return (
     <div>
+      <Header></Header>
       <div>        
         <label>
               Matricula: 
