@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import Headercito from '../components/header';
 import Listita from '../components/layoutadmin'
 
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A202' : '#fff',
   ...theme.typography.body2,
@@ -30,7 +31,11 @@ export default function menuadmin() {
         </Grid>
         
         <Grid item xs={9}>
-          <Item sx={{ height: 800 }}>xs=9</Item>
+          <Item sx={{ height: 800 }}>
+          
+            
+            xs=9</Item>
+          
         </Grid>
       </Grid>
     </Grid>

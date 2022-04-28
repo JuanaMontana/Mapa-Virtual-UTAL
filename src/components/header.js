@@ -58,16 +58,18 @@ export default function SearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar style={{ background: '#2E3B55' }} position="static">
         <Toolbar>
-        <img src={Logito} style={{width:100,height:"auto"}} />
+          <a href="https://www.utalca.cl/">
+          <img src={Logito} style={{ width: 100, height: "auto" }} />
+          </a>
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            
+
           </Typography>
-          <Avatar src="/static/images/avatar/2.jpg" />
+          <Avatar src="/static/images/avatar/1.jpg" />
         </Toolbar>
       </AppBar>
     </Box>
