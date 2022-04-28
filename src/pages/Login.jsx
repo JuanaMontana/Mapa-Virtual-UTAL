@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 
-
 function CuadroLogin(){
   const [matricula, setMatricula] = useState('');
   const [password, setPassword] = useState('');
@@ -20,6 +19,8 @@ function CuadroLogin(){
 
   firebase.initializeApp(config);
   let firestore = firebase.firestore();
+
+  
 
   const login = async () => {
 
