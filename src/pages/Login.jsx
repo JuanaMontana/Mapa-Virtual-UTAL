@@ -6,6 +6,7 @@ import Menuadmin from './menuadmin';
 import Header from '../components/headerlogin'
 import styled from 'styled-components';
 import Modal from '../components/modal';
+import Grid from '@mui/material/Grid';
 
 
 function CuadroLogin() {
@@ -56,12 +57,13 @@ function CuadroLogin() {
 
 
   return (
-    <div>
-      <div >
+    <Grid >
+      <Grid >
         <Header />
-      </div>
+      </Grid>
 
-      <div >
+      <Grid sx={{width: "100%",
+          textAlign: "center", p:15}}>
         <label >
           Matricula:
           <input
@@ -79,7 +81,7 @@ function CuadroLogin() {
           />
         </label>
         <button onClick={login}>Aprietame papito</button>
-      </div>
+      </Grid>
       ;
       <Modal
         state={modaState}
@@ -87,11 +89,11 @@ function CuadroLogin() {
       >
         <Contenido>
           <h1>Usuario y/o contraseña incorrectos</h1>
-          <p>Por favor verifique e intente nuevamente</p>
+
         </Contenido>
 
       </Modal>
-    </div>
+    </Grid>
   );
 }
 
@@ -114,18 +116,22 @@ class Formulario extends React.Component {
 export default Formulario;
 
 const Contenido = styled.div`
-display: flex;
-flex - direction: column;
+
 align - items: center;
 
   h1 {
   font - size: 20px;
   font - weight: 700;
   margin - bottom: 5px;
+  align - items: center;
+  text-align: center;
+  
 }
 
   p {
   font - size: 14px;
   margin - bottom: 20px;
+  align - items: center;
+  text-align: center;
 }
 `;

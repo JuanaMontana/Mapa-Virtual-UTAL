@@ -50,7 +50,7 @@ const Contenedor = styled.div`
 `;
 
 const Encabezado = styled.div`
-    display: flex;
+    
     align-items: center;
     justify-content: space-between;
     
@@ -58,6 +58,7 @@ const Encabezado = styled.div`
         font-weight: 500;
         font-size: 16px;
         margin-bottom: 30px;
+        text-align: center;
         
     }
 `;
