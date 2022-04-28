@@ -15,8 +15,14 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Button from './button'
+/*import Button from './button'*/
+import Button from '@mui/material/Button';
 import TableCell from '@mui/material/TableCell';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import { CardActionArea } from '@mui/material';
+import Salita from '../img/sala.jpg'
 
 function generate(element) {
   return [0, 1, 2, 3].map((value) =>
@@ -43,27 +49,34 @@ export default function InteractiveList() {
   const [secondary, setSecondary] = React.useState(false);
 
   return (
-    <Box  sx={{ flexGrow: 2, maxWidth: 752, height: "100%" }}> 
-      <Grid container direction="column" justifyContent="flex-start" alignItems="center" spacing={2}>     
+    <Box  sx={{maxWidth: 800, height: "100%" }}> 
+      <Grid sx={{maxWidth: 500, height: 700 }}container direction="column" justifyContent="flex-start" alignItems="center" spacing={2}>     
         <Grid item xs={12} md={6}>    
-            <List dense={dense}>
-              {generate(
-                <ListItem>
-                  <Button ></Button>
-                </ListItem>,
-              )}
-            </List>     
+        <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+      <img src={Salita} style={{width:300,height:"auto"}} />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Sala
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Esta salita está de pana porque es buenarda y hay clases de tal cosa porque así no mas es la cosa
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>   
         </Grid>
       </Grid>
 
-      <Grid  sx={{maxHeight: 500}} container direction="column-reverse" justifyContent="flex-end" alignItems="center" paddingBottom={1} >     
-        <Grid  item xs={12} md={6}>    
+      Juan Farias
+      <Grid   container direction="column-reverse" justifyContent="flex-end" alignItems="center" paddingBottom={1} >     
+        <Grid   >    
             <List dense={dense}>
-              {generate1button(
-                <ListItem>
-                  <Button ></Button>
-                </ListItem>,
-              )}
+             
+                
+                <Button variant="contained">Cerrar Sesión</Button>
+                
+              
             </List>     
         </Grid>
       </Grid>

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
+import { NavLink }  from 'react-router-dom';
+import Menuadmin from './menuadmin';
+
 
 function CuadroLogin(){
   const [matricula, setMatricula] = useState('');
@@ -20,27 +23,34 @@ function CuadroLogin(){
   firebase.initializeApp(config);
   let firestore = firebase.firestore();
 
+  const login = async () => 
   
-
-  const login = async () => {
+  {
 
     const db = firestore;
+
     const query = await db.collection('Credenciales').where('matricula', '==', matricula).get();
     if (!query.empty){
       
-      query.forEach(doc => {
+      query.forEach(doc => 
+        {
         if (password == doc.data().pass){
+          
           console.log('pass');
+          
+          
         }else{
           console.log('fail');
         }
       });
+      
     }else{
       console.log('fail');
     }
     
   }
-  
+ 
+
   return (
     <div>
       <div>        
@@ -60,11 +70,12 @@ function CuadroLogin(){
             id = "password"
           />        
         </label>
-        <button onClick={login}>Aprietame papito</button> 
+        <button onClick={login}>Aprietame papito</button>
       </div>
     </div>
   );
 }
+
 
 class Formulario extends React.Component {
 
