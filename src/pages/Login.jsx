@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
-import { useFirebaseApp } from 'reactfire';
-
-
-import Modal from './componentes/Modal';
+import { NavLink } from 'react-router-dom';
+import Menuadmin from './menuadmin';
+import Header from '../components/headerlogin'
 import styled from 'styled-components';
+import Modal from '../components/modal';
+import Grid from '@mui/material/Grid';
 
 
 function CuadroLogin() {
-  
+
   const [modaState, changeState] = useState(false);
   const [matricula, setMatricula] = useState('');
   const [password, setPassword] = useState('');
@@ -28,72 +29,81 @@ function CuadroLogin() {
   firebase.initializeApp(config);
   let firestore = firebase.firestore();
 
-
-
   const login = async () => {
 
     const db = firestore;
+
     const query = await db.collection('Credenciales').where('matricula', '==', matricula).get();
-    if (!query.empty){
-      
+    if (!query.empty) {
+
       query.forEach(doc => {
-        if (password == doc.data().pass){
+        if (password == doc.data().pass) {
+
           console.log('pass');
-        }else{
+
+
+        } else {
           console.log('fail');
+          changeState(!modaState);
         }
       });
-    }else{
+
+    } else {
       console.log('fail');
-      changeState(!modaState)
+      changeState(!modaState);
     }
-    
+
   }
-  
+
+
   return (
-    
-    <div>
-      <div>      
-        <label>
-              Matricula: 
-          <input 
-            type="text" classname="form-control
-            form-control-lg" placeholder="123456"
+    <Grid >
+      <Grid >
+        <Header />
+      </Grid>
+
+      <Grid sx={{width: "100%",
+          textAlign: "center", p:15}}>
+        <label >
+          Matricula:
+          <input
+            type="text"
             onChange={(ev) => setMatricula(ev.target.value)}
-            id = "matricula"
-          />        
+            id="matricula"
+          />
         </label>
         <label>
-              Password: 
-          <input 
-            type="password"  placeholder="**********"
-            onChange={(ev) => setPassword(ev.target.value)} 
-            id = "password"
-          />        
+          Password:
+          <input
+            type="password"
+            onChange={(ev) => setPassword(ev.target.value)}
+            id="password"
+          />
         </label>
-        <button color="success" onClick={login} >Aprietame papito </button> 
-        
-      </div>
+        <button onClick={login}>Aprietame papito</button>
+      </Grid>
+      ;
       <Modal
-        state = {modaState}
-        change = {changeState}
+        state={modaState}
+        change={changeState}
       >
         <Contenido>
           <h1>Usuario y/o contraseña incorrectos</h1>
-          <p>Por favor verifique e intente nuevamente</p>
+
         </Contenido>
-        
+
       </Modal>
-    </div>
+    </Grid>
   );
 }
+
 
 class Formulario extends React.Component {
 
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     return (
       <div>
@@ -106,18 +116,22 @@ class Formulario extends React.Component {
 export default Formulario;
 
 const Contenido = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  h1 { 
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 0px;
-  }
+align - items: center;
+
+  h1 {
+  font - size: 20px;
+  font - weight: 700;
+  margin - bottom: 5px;
+  align - items: center;
+  text-align: center;
+  
+}
 
   p {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
+  font - size: 14px;
+  margin - bottom: 20px;
+  align - items: center;
+  text-align: center;
+}
 `;

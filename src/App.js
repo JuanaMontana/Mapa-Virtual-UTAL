@@ -1,34 +1,28 @@
-import logo from './logo.svg';
+
+import Menuadmin from "./pages/menuadmin"
 import './App.css';
-import { useAuth0 } from '@auth0/auth0-react';
-import Login from './Login.jsx';
-import { LoginButton } from './Login';
-import { LogoutButton } from './Logout';
-import { Profile } from './Profile';
-
-import styled from 'styled-components';
-import Modal from './componentes/Modal';
-import { Button } from 'bootstrap';
-import React, { useState } from 'react';
-
-
-
+import Login from './pages/Login.jsx';
+import Menuusuario from "./pages/menuusuario";
+import Notfound from './pages/Notfoundpage';
+import { BrowserRouter,Route,Routes} from "react-router-dom";
+import React, { Component }  from 'react';
 
 function App() {
-  
   return (
-    <div className="App">
-      <header className="App-header">
-          
-      </header>
-      <div className="rectangulo_login">
-        <Login/>
-        
-      </div>
-      
-    </div>
+
+    <BrowserRouter> 
+
+
+          <Routes>
+          <Route path="/" element={<Login/>} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/admin" element={<Menuadmin/>} />
+            <Route path="/usuario" element={<Menuusuario/>} />
+            <Route path="/*" element={<Notfound/>} />
+          </Routes>
+    </BrowserRouter>
+
   );
 }
 
 export default App;
-
