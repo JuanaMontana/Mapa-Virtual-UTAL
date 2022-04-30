@@ -41,9 +41,15 @@
   background-color: gray;
   margin: 100px auto;
   padding: 100px;
-  width: 10%;
+  width: 10%; 
   border-radius: 30px;
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+.leaflet-container{
+
+  width: "100vw";
+  height: 800px;
 }
