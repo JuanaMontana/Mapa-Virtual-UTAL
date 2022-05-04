@@ -1,28 +1,27 @@
-import logo from './logo.svg';
+
+import Menuadmin from "./pages/menuadmin"
 import './App.css';
-import { useAuth0 } from '@auth0/auth0-react';
-import { LoginButton } from './Login';
-import { LogoutButton } from './Logout';
-import { Profile } from './Profile';
+import Login from './pages/Login.jsx';
+import Menuusuario from "./pages/menuusuario";
+import Notfound from './pages/Notfoundpage';
+import { BrowserRouter,Route,Routes} from "react-router-dom";
+import React, { Component }  from 'react';
 
 function App() {
-  const {isAuthenticated} = useAuth0();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {isAuthenticated?(
-          <>
-            <Profile/>
-            <LogoutButton/>
-          </>          
-        ):
-          (
-            <LoginButton/>
-          )
-        }       
-      </header>
-    </div>
+
+    <BrowserRouter> 
+
+
+          <Routes>
+          <Route path="/" element={<Login/>} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/admin" element={<Menuadmin/>} />
+            <Route path="/usuario" element={<Menuusuario/>} />
+            <Route path="/*" element={<Notfound/>} />
+          </Routes>
+    </BrowserRouter>
+
   );
 }
 
