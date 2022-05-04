@@ -5,6 +5,11 @@ import Grid from '@mui/material/Grid';
 import Headercito from '../components/header';
 import Listita from '../components/layoutadmin'
 import Mapita from '../img/mapa.png'
+import { MapContainer } from 'react-leaflet/MapContainer'
+import { TileLayer } from 'react-leaflet/TileLayer'
+import { useMap } from 'react-leaflet/hooks'
+import Mapitaa from '../components/mapview'
+
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A202' : '#fff',
@@ -32,10 +37,10 @@ export default function menuusuario() {
 
                 <Grid item xs={9}>
                     <Item sx={{ height: 800 }}>
-                        <img src={Mapita} style={{ width: 680, height: "auto" }} />
-
+                    <Mapitaa/>
                     </Item>
-
+                    
+                
                 </Grid>
             </Grid>
         </Grid>
