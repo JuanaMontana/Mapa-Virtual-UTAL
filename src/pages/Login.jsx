@@ -33,13 +33,18 @@ function CuadroLogin() {
 
     const db = firestore;
 
+    const queryAdmin = await db.collection('Credenciales').where('usuario', '==', matricula).get();
+    if(!queryAdmin.empty) {
+      window.location = '/admin';
+    }
+
     const query = await db.collection('Credenciales').where('matricula', '==', matricula).get();
     if (!query.empty) {
 
       query.forEach(doc => {
         if (password == doc.data().pass) {
-
           console.log('pass');
+          window.location = '/usuario';
 
 
         } else {
