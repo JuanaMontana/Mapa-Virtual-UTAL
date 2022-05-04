@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import { useAuth0 } from '@auth0/auth0-react';
-import Login from './Login.jsx';
-import { LoginButton } from './Login';
-import { LogoutButton } from './Logout';
-import { Profile } from './Profile';
+import './App.css';import { Button } from '@mui/material';
+import Edificios from './components/Edificios';
+import { Component } from 'react';
+import { render } from '@testing-library/react';
 
-function App() {
-  const {isAuthenticated} = useAuth0();
-  return (
-    <div className="App">
-      <header className="App-header">
-          
-      </header>
-      <div className="rectangulo_login">
-        <Login/>
+class App extends Component{
+  render(){
+    return (
+      <div className="App">
+        <Edificios/>
       </div>
-      
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
