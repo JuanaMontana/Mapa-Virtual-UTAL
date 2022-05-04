@@ -5,7 +5,7 @@ import {IconLocation} from './iconLocation';
 
 const Markers = () => {
     return(
-        <Marker position={{ lat: '-35.002798502697445 ', lng: '-71.22985801427023' }} icon={IconLocation}/>
+        <Marker position={{ lat: '-35.001167421929125 ', lng: '-71.23100837318432' }} icon={IconLocation}/>
     );
 };
 export default Markers;

@@ -8,7 +8,7 @@ import Markers from './markers.js'
 
 const MapView = () => {
     return (
-        <MapContainer center={{ lat: '-35.002798502697445  ', lng: '-71.22985801427023' }} zoom={20}>
+        <MapContainer center={{ lat: '-35.001185  ', lng: '-71.230944' }} zoom={20}>
             
             secondary
             dsa
