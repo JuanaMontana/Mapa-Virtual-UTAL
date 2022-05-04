@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import App from "../App";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -20,12 +20,20 @@ function createData(
   return { name, calories, fat, carbs, protein };
 }
 
-const getBuilding = async () => {
-  const querySnapshot = await db.collection('Edificios').get();
-  querySnapshot.forEach(doc => {
-    console.log(doc.data())
-  });
+const GetEdificios = () => {
+  const getBuilding = async () => {
+    const querySnapshot = await db.collection('Edificios').get();
+    querySnapshot.forEach(doc => {
+      console.log(doc.data())
+    }); 
+  }
+
+  useEffect(() => {
+    getBuilding();
+  }, []);
 }
+
+
 
 const rows = [
   createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
