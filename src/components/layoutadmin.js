@@ -23,6 +23,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import Salita from '../img/sala.jpg'
+import { Link } from 'react-router-dom';
 
 function generate(element) {
   return [0, 1, 2, 3].map((value) =>
@@ -43,6 +44,7 @@ function generate1button(element) {
 const Demo = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
 }));
+
 
 export default function InteractiveList() {
   const [dense, setDense] = React.useState(false);
@@ -71,12 +73,10 @@ export default function InteractiveList() {
       Juan Farias
       <Grid   container direction="column-reverse" justifyContent="flex-end" alignItems="center" paddingBottom={1} >     
         <Grid   >    
-            <List dense={dense}>
-             
-                
-                <Button variant="contained">Cerrar Sesión</Button>
-                
-              
+            <List dense={dense}>   
+            <Button component={Link} to="/login" color="primary" variant="contained">
+              Cerrar sesión
+            </Button>
             </List>     
         </Grid>
       </Grid>
