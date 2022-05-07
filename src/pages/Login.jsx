@@ -34,7 +34,7 @@ function CuadroLogin() {
     const db = firestore;
 
     const queryAdmin = await db.collection('Credenciales').where('usuario', '==', matricula).get();
-    if(!queryAdmin.empty) {
+    if (!queryAdmin.empty) {
       window.location = '/admin';
     }
 
@@ -63,13 +63,12 @@ function CuadroLogin() {
 
   return (
     <Grid >
-      <Grid >
+      <Grid  >
         <Header />
       </Grid>
 
-      <Grid sx={{width: "100%",
-          textAlign: "center", p:15}}>
-        <label >
+      <Grid container direction="column" height="" justify="center" alignItems="center" marginTop={'100px'} style={{ height: '200px' }}>
+        <label style={{ padding: '10px' }}>
           Matricula:
           <input
             type="text"
@@ -77,15 +76,18 @@ function CuadroLogin() {
             id="matricula"
           />
         </label>
-        <label>
+        <label style={{ padding: '10px' }}>
           Password:
           <input
             type="password"
             onChange={(ev) => setPassword(ev.target.value)}
             id="password"
           />
-        </label>
-        <button onClick={login}>Aprietame papito</button>
+        </label >
+        <button container
+          direction="row"
+          justifyContent="flex-end"
+          alignItems="center" onClick={login}>Aprietame papito</button>
       </Grid>
       ;
       <Modal
