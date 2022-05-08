@@ -87,7 +87,7 @@ function CuadroLogin() {
         <button container
           direction="row"
           justifyContent="flex-end"
-          alignItems="center" onClick={login}>Aprietame papito</button>
+          alignItems="center" style={{ marginLeft: '130px', marginTop: '10px'}} onClick={login}>Aprietame papito</button>
       </Grid>
       ;
       <Modal
