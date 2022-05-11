@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Headercito from '../components/header';
-import Listita from '../components/layoutadmin'
+import Listita from '../components/layoutuser'
 import Mapita from '../img/mapa.png'
 import Mapitaa from '../components/mapview'
 
