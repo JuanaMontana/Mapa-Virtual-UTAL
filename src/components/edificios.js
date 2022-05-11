@@ -87,20 +87,36 @@ export default function CustomizedMenus() {
       >
         <MenuItem onClick={handleClose} disableRipple>
           <ApartmentIcon />
-          Edit
+          Minas
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
         <ApartmentIcon />
-          Duplicate
+        Bienestar Estudiantil
         </MenuItem>
         
         <MenuItem onClick={handleClose} disableRipple>
         <ApartmentIcon />
-          Archive
+          Mecanica
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
         <ApartmentIcon />
-          More
+          I+D
+        </MenuItem>
+        <MenuItem onClick={handleClose} disableRipple>
+        <ApartmentIcon />
+        Aulas e1 y e2
+        </MenuItem>
+        <MenuItem onClick={handleClose} disableRipple>
+        <ApartmentIcon />
+          Construccion
+        </MenuItem>
+        <MenuItem onClick={handleClose} disableRipple>
+        <ApartmentIcon />
+          Servicios multiples
+        </MenuItem>
+        <MenuItem onClick={handleClose} disableRipple>
+        <ApartmentIcon />
+          Laboratorios
         </MenuItem>
       </StyledMenu>
     </div>
