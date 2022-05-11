@@ -24,6 +24,7 @@ import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import Salita from '../img/sala.jpg'
 import { Link } from 'react-router-dom';
+import Edificios from './edificios'
 
 function generate(element) {
   return [0, 1, 2, 3].map((value) =>
@@ -52,17 +53,15 @@ export default function InteractiveList() {
 
   return (
     <Box  sx={{maxWidth: 800, height: "100%" }}> 
-      <Grid sx={{maxWidth: 500, height: 700 }}container direction="column" justifyContent="flex-start" alignItems="center" spacing={2}>     
-        <Grid item xs={12} md={6}>    
-        <Button component={Link} to="/login" color="primary" variant="contained">
-              Cerrar sesión
+      <Grid sx={{maxWidth: 500, height: 700 }}container direction="column" justifyContent="flex-start" alignItems="center" spacing={2}>
+        <Grid item xs={12} md={6} container direction="column-reverse" justifyContent="flex-end" alignItems="center"  >
+            <Button style={{  margin:'10px'}} component={Link} to="/login" color="primary" variant="contained" >
+              Horario
             </Button>
-            <Button component={Link} to="/login" color="primary" variant="contained">
-              Cerrar sesión
+            <Button style={{  margin:'10px'}} component={Link} to="/login" color="primary" variant="contained">
+              Salas
             </Button>
-            <Button component={Link} to="/login" color="primary" variant="contained">
-              Cerrar sesión
-            </Button>
+            <Edificios></Edificios>
         </Grid>
       </Grid>
 
