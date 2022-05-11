@@ -7,6 +7,9 @@ import Header from '../components/headerlogin'
 import styled from 'styled-components';
 import Modal from '../components/modal';
 import Grid from '@mui/material/Grid';
+import BackPic from '../img/backgroundPic.jpg'
+import LoginPic from '../img/loginbg.jpg'
+import Button from '@mui/material/Button';
 
 
 function CuadroLogin() {
@@ -33,13 +36,18 @@ function CuadroLogin() {
 
     const db = firestore;
 
+    const queryAdmin = await db.collection('Credenciales').where('usuario', '==', matricula).get();
+    if (!queryAdmin.empty) {
+      window.location = '/admin';
+    }
+
     const query = await db.collection('Credenciales').where('matricula', '==', matricula).get();
     if (!query.empty) {
 
       query.forEach(doc => {
         if (password == doc.data().pass) {
-
           console.log('pass');
+          window.location = '/usuario';
 
 
         } else {
@@ -58,31 +66,33 @@ function CuadroLogin() {
 
   return (
     <Grid >
-      <Grid >
+      <Grid  >
         <Header />
       </Grid>
 
-      <Grid sx={{width: "100%",
-          textAlign: "center", p:15}}>
-        <label >
-          Matricula:
-          <input
-            type="text"
-            onChange={(ev) => setMatricula(ev.target.value)}
-            id="matricula"
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            onChange={(ev) => setPassword(ev.target.value)}
-            id="password"
-          />
-        </label>
-        <button onClick={login}>Aprietame papito</button>
+      <Grid container direction="column" height="" justify="center" alignItems="center" paddingTop={'100px'} style={{ height: '850px', backgroundImage: `url(${BackPic})`, backgroundSize: "cover" }}>
+        <Grid container direction="column" width="300px" height="300px" justify="center" alignItems="center" paddingTop={'30px'} style={{ height: '180px', backgroundImage: `url(${LoginPic})`, backgroundSize: "cover", opacity: 0.9, borderRadius: "15px" }}>
+          <label style={{ padding: '10px', color: 'white' }}>
+            Matricula:
+            <input
+              type="text"
+              onChange={(ev) => setMatricula(ev.target.value)}
+              id="matricula"
+            />
+          </label>
+          <label style={{ padding: '10px' , color: 'white'}}>
+            Password:
+            <input
+              type="password"
+              onChange={(ev) => setPassword(ev.target.value)}
+              id="password"
+            />
+          </label >
+          <label marginTop="10px" style={{ padding: '10px' }}>
+            <Button variant="contained" alignItems="center" style={{backgroundColor: '#056383'}} onClick={login}>Aprietame papito</Button>
+            </label>
+        </Grid>
       </Grid>
-      ;
       <Modal
         state={modaState}
         change={changeState}

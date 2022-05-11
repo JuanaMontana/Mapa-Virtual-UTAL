@@ -54,19 +54,15 @@ export default function InteractiveList() {
     <Box  sx={{maxWidth: 800, height: "100%" }}> 
       <Grid sx={{maxWidth: 500, height: 700 }}container direction="column" justifyContent="flex-start" alignItems="center" spacing={2}>     
         <Grid item xs={12} md={6}>    
-        <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-      <img src={Salita} style={{width:300,height:"auto"}} />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Sala
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Esta salita está de pana porque es buenarda y hay clases de tal cosa porque así no mas es la cosa
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>   
+        <Button component={Link} to="/login" color="primary" variant="contained">
+              Cerrar sesión
+            </Button>
+            <Button component={Link} to="/login" color="primary" variant="contained">
+              Cerrar sesión
+            </Button>
+            <Button component={Link} to="/login" color="primary" variant="contained">
+              Cerrar sesión
+            </Button>
         </Grid>
       </Grid>
 
