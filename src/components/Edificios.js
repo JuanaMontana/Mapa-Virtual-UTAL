@@ -18,8 +18,9 @@ function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
 }
 
-export default function Edificios() {
+export default function Edificios() {                               
   const [datos, setDatos] = useState([]);
+  const [rows, setRows] = useState([]);
 
   useEffect(() => {
     db.collection("Edificios").onSnapshot((querySnapshot) => {
@@ -28,20 +29,28 @@ export default function Edificios() {
         docs.push(doc.data());
       });
       setDatos(docs);
-      console.log(datos);
+      datos.map((edificio) => {
+        const data = createData(edificio.Nombre, 0, 0, 0, 0);
+        console.log(data);
+        setRows([...rows, data])
+        console.log(rows);
+      })
     });  
   }, []); 
 
-  const rows = [
-    /*datos.forEach((data) => {
-      createData(data.Nombre, 159, 6.0, 24, 4.0)
-    }),*/
-    createData(datos[0].Nombre, 159, 6.0, 24, 4.0),
-    createData(datos[1].Nombre, 237, 9.0, 37, 4.3),
-    createData(datos[2].Nombre, 262, 16.0, 24, 6.0),
-    createData(datos[3].Nombre, 305, 3.7, 67, 4.3),
-    createData(datos[4].Nombre, 356, 16.0, 49, 3.9),
-  ];
+  /*const rows = [
+    datos.map((edificio) => {
+      edificio.Nombre, 0, 0, 0, 0
+    })
+    createData(datos[0].Nombre, 0, 0, 0, 0),
+    createData(datos[1].Nombre, 0, 0, 0, 0),
+    createData(datos[2].Nombre, 0, 0, 0, 0),
+    createData(datos[3].Nombre, 0, 0, 0, 0),
+    createData(datos[4].Nombre, 0, 0, 0, 0),
+    createData(datos[5].Nombre, 0, 0, 0, 0),
+    createData(datos[6].Nombre, 0, 0, 0, 0),
+    createData(datos[7].Nombre, 0, 0, 0, 0),
+  ];*/
   
   return (
     <TableContainer component={Paper}>
@@ -49,10 +58,10 @@ export default function Edificios() {
         <TableHead>
           <TableRow>
             <TableCell>Nombre</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell align="right">Column 2</TableCell>
+            <TableCell align="right">Column 3</TableCell>
+            <TableCell align="right">Column 4</TableCell>
+            <TableCell align="right">Column 5</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
